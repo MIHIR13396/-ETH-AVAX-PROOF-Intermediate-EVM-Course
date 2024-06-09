@@ -1,0 +1,31 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.0;
+
+contract DrivingLicense {
+    
+    function checkEligibility(uint _age) public pure returns (string memory) {
+        
+        require(_age >= 18, "You must be 18 or above to drive");
+
+        
+        if (_age == 18) {
+            assert(_age == 18);
+            return "Congratulations! You are now eligible for a driving license";
+        }
+
+      
+        return "You are eligible to drive";
+    }
+
+    
+    function applyForLicense(uint _age) public pure returns (string memory) {
+       
+        if (_age < 18) {
+            revert("You are not eligible to drive, age must be 18 or above");
+        }
+
+      
+        return "You are eligible to apply for a driving license";
+    }
+}
+
